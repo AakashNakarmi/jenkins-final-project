@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: jenkins-final-project-deployment
+  name: jenkins-final-project
 spec:
   selector:
     matchLabels:
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: springboot-k8ssvc
+  name: microservices
 spec:
   selector:
     app: jenkins-final-project
