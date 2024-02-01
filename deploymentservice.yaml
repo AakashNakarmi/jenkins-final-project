@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: jenkins-final-project
+  name: spring-boot-k8s-deployment
 spec:
   selector:
     matchLabels:
-      app: jenkins-final-project
+      app: spring-boot-k8s
   replicas: 2 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: jenkins-final-project
+        app: spring-boot-k8s
     spec:
       containers:
-        - name: jenkins-final-project
+        - name: spring-boot-k8s
           image: aakashnakarmi/jenkins-final-project # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: microservices
+  name: springboot-k8ssvc
 spec:
   selector:
-    app: jenkins-final-project
+    app: spring-boot-k8s
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
