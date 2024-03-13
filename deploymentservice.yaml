@@ -17,7 +17,7 @@ spec:
           image: aakashnakarmi/jenkins-final-project # Image that will be used to containers in the cluster
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 4000 # The port that the container is running on in the cluster
+            - containerPort: 8081 # The port that the container is running on in the cluster
 
 ---
 
@@ -30,6 +30,6 @@ spec:
     app: spring-boot-k8s
   ports:
     - protocol: "TCP"
-      port: 4000 # The port that the service is running on in the cluster
-      targetPort: 4000 # The port exposed by the service
+      port: 8081 # The port that the service is running on in the cluster
+      targetPort: 8081 # The port exposed by the service
   type: NodePort # type of the service.
